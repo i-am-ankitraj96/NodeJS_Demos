@@ -1,0 +1,19 @@
+{
+    "name": "02-test-project",
+    "version": "1.0.0",
+    "description": "My first Node project",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "watch": "nodemon --watch index.js index.js",
+        "test-lodash": "node test-lodash.js"
+    },
+    "author": "Prashanth Puranik",
+    "license": "MIT",
+    "dependencies": {
+        "lodash": "^4.17.11"
+    },
+    "devDependencies": {
+        "mocha": "^6.1.4"
+    }
+}

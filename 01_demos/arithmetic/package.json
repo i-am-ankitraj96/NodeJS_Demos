@@ -1,0 +1,11 @@
+{
+    "name": "@puranik3/arithmetic",
+    "version": "1.0.0",
+    "description": "Arithmetic module (Demo on publishing Node packages - not meant for public use)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Prashanth Puranik",
+    "license": "ISC"
+}

@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="member.imageUrl" [alt]="member.name">
+        <div class="card-body">
+          <h5 class="card-title">{{member.name}}</h5>
+          <p class="card-text"> from {{member.startDate}}  </p>
+        </div>
+     
+        <div class="card-body">
+
+          
+
+          <button  class="btn btn-warning card-link" (click)=" OnEdit.emit(member)">Edit</button>
+         
+          <button  class="btn btn-danger card-link" (click)=" OnDelete.emit(member)">Delete</button>
+        </div>
+      </div>
+
+</div>

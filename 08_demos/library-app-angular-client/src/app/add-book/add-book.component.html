@@ -1,0 +1,89 @@
+<div class="container">
+  <h1>Add Book</h1>
+  <hr />
+  <form method="POST" #addBookForm="ngForm">
+
+      <div class="form-group row">
+          <label for="title" class="col-form-label col-md-3">Title</label>
+          <div class="col-md-9">
+              <input type="text" id="title" name="title" class="form-control" [(ngModel)]="book.title"   
+              required              
+              #bookTitle="ngModel"/>
+              <div [hidden]="bookTitle.valid || bookTitle.pristine"
+                   class="alert alert-danger">
+                   bookTitle is required
+              </div>
+          </div>
+      </div>
+      
+      <div class="form-group row">
+          <label for="author" class="col-form-label col-md-3">Author</label>
+          <div class="col-md-9">
+              <input type="text" id="author" name="author" class="form-control" [(ngModel)]="book.author"      required              
+              #bookAuthor="ngModel"/>
+              <div [hidden]="bookAuthor.valid || bookAuthor.pristine"
+                   class="alert alert-danger">
+                   Author is required
+              </div>
+          </div>
+      </div>
+      
+     <div class="form-group row">
+        <label for="price" class="col-form-label col-md-3">Price</label>
+        <div class="col-md-9">
+            <input type="number" id="price" name="price" class="form-control" [(ngModel)]="book.price"   
+                          
+            />
+                      </div>
+    </div>
+     <div class="form-group row">
+          <label for="imageUrl" class="col-form-label col-md-3">Image Url</label>
+          <div class="col-md-9">
+              <input type="url" id="imageUrl" name="imageUrl" class="form-control" [(ngModel)]="book.imageUrl"   
+                            
+              />
+                        </div>
+      </div>
+      
+
+      <div class="form-group row">
+          <label for="year-of-publication" class="col-form-label col-md-3">Year of Publication</label>
+          <div class="col-md-9">
+              <input type="number" id="year-of-publication" name="year-of-publication" class="form-control" [(ngModel)]="book.publishYear"    required              
+              #publishYear="ngModel"/>
+              <div [hidden]="publishYear.valid || publishYear.pristine"
+                   class="alert alert-danger">
+                   Year of Publication is required
+              </div>
+          </div>
+      </div>
+      
+      <div class="form-group row">
+          <label for="category" class="col-form-label col-md-3">Category</label>
+          <div class="col-md-9">
+              <select type="text" id="category" name="category" class="form-control" [(ngModel)]="book.category">
+                  <option value="">-- Select Category--</option>
+                  <option value="biography">Biography</option>
+                  <option value="fiction">Fiction</option>
+                  <option value="history">History</option>
+                  <option value="self-help">Self help</option>
+                  <option value="technical">Technical</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="number-of-copies" class="col-form-label col-md-3">Number of copies</label>
+          <div class="col-md-9">
+              <input type="number" id="number-of-copies" name="number-of-copies" min="1" class="form-control" [(ngModel)]="book.totalCopies" />
+          </div>
+      </div>
+
+
+      <div class="form-group row">
+          <div class="offset-md-3 col-md-9">
+              <input type="submit" (click)="onAdd(addBookForm)" [disabled]="addBookForm.invalid" value="Add" class="btn btn-primary" />
+          </div>
+      </div>
+  </form>
+</div>

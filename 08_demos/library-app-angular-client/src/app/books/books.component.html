@@ -1,0 +1,83 @@
+<div class="container">
+
+  <h1>Book Catalog</h1>
+  <hr />
+
+  <div class="float-right">
+ 
+    <a [routerLink]="['/addbook']"  class="btn btn-success float-right"  >Add Book</a>
+    
+  
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="bg-primary text-white">
+        <tr style="font-size: 0.8rem;">
+          <th>S.No</th>
+          <th>Image </th>
+
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+
+          <th>Category</th>
+          <th class="text-nowrap">Publication Year</th>
+          <th class="text-nowrap">Available / Total</th>
+          <th style="width:16%" class="text-nowrap">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books;let i = index">
+          <td>
+            {{i + 1}}
+          </td>
+          <td>
+            <div class="w-50 mx-auto">
+              <img [src]="book.imageUrl" [alt]="book.title" class="img-fluid" />
+            </div>
+          </td>
+          <td>{{book.id | lowercase}}</td>
+          <td>{{book.title}}</td>
+          
+    
+          <td>
+            <div [ngStyle]="{'color':'green'}">{{book.author}}</div>
+
+          </td>
+          <td>
+
+            <div>
+
+
+              <span [ngClass]="getCategory(book.category)"> {{ book.category }} </span>
+
+
+            </div>
+
+
+          </td>
+          <td>
+
+
+
+
+            <div [ngStyle]="{'color':book.publishYear <= 1900 ? 'green' : 'red' }">{{book.publishYear}}</div>
+
+          </td>
+          <td> {{book.availableCopies}} / {{book.totalCopies}}</td>
+          <td>
+
+
+                  <button  *ngIf="book.availableCopies > 0" (click)="assignReleaseBook(book)" type="button" class="btn btn-primary btn-sm">Assign/Release</button><br/><br/><br/>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(book)" >Delete</button>
+
+         
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>

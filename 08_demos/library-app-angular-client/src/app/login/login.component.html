@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-center">Login</h1>
+    <hr />
+
+
+    <form method="POST" class="form mt-xl mb-xl" [formGroup]="loginFormGroup">
+        <div class="form-group row">
+            <label for="username" class="col-md-3">Username</label>
+            <div class="col-md-9">
+                <input type="text" id="username" name="username" class="form-control" formControlName="username" />
+                <div class="alert alert-danger" *ngIf="username.errors?.required && username.touched">
+                    Username cannot be empty 
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password" class="col-md-3">Password</label>
+            <div class="col-md-9">
+                <input type="password" id="password" name="password" class="form-control" formControlName="password" />
+                <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                    Password should not be empty
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-md-3 col-md-3">
+                   <input type="submit" [disabled]="loginFormGroup.invalid" value="Login" (click)="onLogin()" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+

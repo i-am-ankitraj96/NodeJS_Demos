@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin-top: 4.5rem;
+}
+
+.navbar {
+    box-shadow: 0 4px 4px 0px rgba( 180, 224, 240, 0.8 );
+}

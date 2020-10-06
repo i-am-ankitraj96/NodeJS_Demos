@@ -1,0 +1,16 @@
+<div class="container">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="book.imageUrl" [alt]="book.title">
+        <div class="card-body">
+          <h5 class="card-title">{{book.title}}</h5>
+          <p class="card-text"> By {{book.author}} {{book.publishYear}} </p>
+        </div>
+     
+        <div class="card-body">
+          <button  class="card-link" (click)=" OnRent.emit(book)">Rent</button>
+         
+        </div>
+      </div>
+
+</div>

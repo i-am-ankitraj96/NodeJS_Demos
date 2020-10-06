@@ -1,0 +1,1 @@
+API_DOC_URL=https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_create_access_url.html

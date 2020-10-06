@@ -1,0 +1,53 @@
+<div class="container">
+    
+        <h1>Members list</h1>
+        <hr />
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>S.No</th>
+                    <th>Image </th>
+                    <th>Membership ID</th>
+                    <th>Name</th>
+                    <th>Membership start date</th>
+                    <th>Membership end date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tbody>
+                    <tr *ngFor="let member of members;let i = index">
+                      <td>
+                        {{i + 1}}
+                      </td>
+                      <td style="width: 120px">
+                        <div class="w-50">
+                          <img [src]="member.imageUrl" [alt]="member.title" class="img-fluid" />
+                        </div>
+                      </td>
+                      <td>{{member.id}}</td>
+                      <td>{{member.name}}</td>
+                      <td>
+                          {{member.startDate | date: 'mediumDate'}}
+            
+                      </td>
+                   
+                      <td>
+            
+            
+                          {{member.endDate | date: 'shortDate'}}
+            
+            
+                      </td>
+                    
+                      <td>
+                        <a class="btn btn-sm btn-outline-info"  *ngIf="canShowActivate(member.endDate)" href="#">Activate</a>
+                        <a class="btn btn-sm btn-outline-info" *ngIf="!canShowActivate(member.endDate)" href="#">Edit</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+</div>
+
+

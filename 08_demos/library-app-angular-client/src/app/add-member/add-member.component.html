@@ -1,0 +1,70 @@
+<div class="container">
+  <h1>Add/Edit Member</h1>
+  <hr />
+
+  <form method="POST" #addMemberForm="ngForm">
+
+      
+      <div class="form-group row">
+          <label for="username" class="col-form-label col-md-3">UserName</label>
+          <div class="col-md-9">
+              <input type="text" id="name" name="name" class="form-control"   [(ngModel)]="member.username" 
+              required              
+              #memberUserName="ngModel"/>
+              <div [hidden]="memberUserName.valid || memberUserName.pristine"
+                   class="alert alert-danger">
+                   UserName is required
+              </div> 
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="password" class="col-form-label col-md-3">Password</label>
+          <div class="col-md-9">
+              <input type="password" id="password" name="password" class="form-control"   [(ngModel)]="member.password" 
+              required              
+              #memberPassword="ngModel"/>
+              <div [hidden]="memberPassword.valid || memberPassword.pristine"
+                   class="alert alert-danger">
+                   password is required
+              </div> 
+          </div>
+      </div>
+
+
+      <div class="form-group row">
+          <label for="name" class="col-form-label col-md-3">Name</label>
+          <div class="col-md-9">
+              <input type="text" id="name" name="name" class="form-control"   [(ngModel)]="member.name" 
+              required              
+              #memberName="ngModel"/>
+              <div [hidden]="memberName.valid || memberName.pristine"
+                   class="alert alert-danger">
+                   memberName is required
+              </div> 
+          </div>
+      </div>
+
+
+      
+      <div class="form-group row">
+          <label for="membership-end-date" class="col-form-label col-md-3">Membership End Date</label>
+          <div class="col-md-9">
+              <input type="date" id="membership-end-date" name="membership-end-date" min="2019-04-01" class="form-control" [(ngModel)]="member.endDate" 
+              required              
+              #endDate="ngModel"/>
+              <div [hidden]="endDate.valid || endDate.pristine"
+                   class="alert alert-danger">
+                   End Date is required
+              </div> 
+
+          </div>
+      </div>
+      
+      <div class="form-group row">
+          <div class="offset-md-3 col-md-9">
+          
+              <input type="submit" (click)="onAdd(addMemberForm)" [disabled]="addMemberForm.invalid" value="Add" class="btn btn-outline-primary" />
+          </div>
+      </div>
+  </form>
+</div>
